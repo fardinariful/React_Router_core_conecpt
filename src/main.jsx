@@ -5,19 +5,31 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
+import Home from './Components/Home/Home';
+import About from './Components/About/About';
+import Contact from './Components/Contact/Contact';
 //import App from './App.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
-
-   
+    element: <Home></Home>,
+    children:[
+                {
+                  path:"/about",
+                  element:<About></About>
+                },
+                {
+                  path:"/contact",
+                  element:<Contact></Contact>
+                }
+    ]    
   },
-  {
-    path: "/about",
-    element: <div>I am in about page
-    </div>
-  }
+  // {
+  //   path:"/header",
+  //   element:<Header></Header>
+  // }
+ 
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
